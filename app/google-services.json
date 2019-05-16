@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "674961797603",
+    "firebase_url": "https://furiapinolera-1a83a.firebaseio.com",
+    "project_id": "furiapinolera-1a83a",
+    "storage_bucket": "furiapinolera-1a83a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674961797603:android:e5fffb6f1db95999",
+        "android_client_info": {
+          "package_name": "com.panaceasoft.login2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "674961797603-vf7io3p7dcvcf0f583ctjg5dsobmqdvf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.panaceasoft.login2",
+            "certificate_hash": "ba42dfe2259ceb1b2f7075d8db5c2ff78bdb3e4c"
+          }
+        },
+        {
+          "client_id": "674961797603-bo335ng55tqu9m2989uvv3ntl6furnfp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD652j-cpYjj0l7ZkM-AjuBFig2n_GJnQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "674961797603-bo335ng55tqu9m2989uvv3ntl6furnfp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
