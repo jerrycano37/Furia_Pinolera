@@ -1,5 +1,8 @@
 package com.furia.pinolera;
 
+import android.app.AlertDialog;
+import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -54,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initActions() {
+
+        forgotButton.setOnClickListener(view -> {
+            mensajes.alertaPassRecovery(this,getString(R.string.instrucciones),getString(R.string.correoVinculado));
+        });
 
         nuevoUser.setOnClickListener(view -> {
             Intent intentNewUser = new Intent(this, usuariosRegistros.class);

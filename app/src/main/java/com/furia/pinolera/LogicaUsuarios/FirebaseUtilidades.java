@@ -4,15 +4,17 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.util.Log;
+
 import com.furia.pinolera.R;
 import com.furia.pinolera.menuPrincipal;
 import com.furia.pinolera.utilidades.mensajes;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Objects;
+
 import static android.content.ContentValues.TAG;
 
 public class FirebaseUtilidades {
@@ -22,10 +24,12 @@ public class FirebaseUtilidades {
     void registroCorreoPass(String correo, String password, Context ctx) {
         FirebaseApp.initializeApp(ctx);
         mAuth = FirebaseAuth.getInstance();
-        barraEspera(ctx,ctx.getString(R.string.Registrandowait),ctx.getString(R.string.esperePorFavor));
+        FirebaseUser usuarioActual = mAuth.getCurrentUser();
+        barraEspera(ctx, ctx.getString(R.string.Registrandowait), ctx.getString(R.string.esperePorFavor));
 
         mAuth.createUserWithEmailAndPassword(correo, password).addOnCompleteListener((Activity) ctx, task -> {
             if (task.isSuccessful()) {
+                usuarioActual.sendEmailVerification();
                 progressDialog.dismiss();
                 Log.d(TAG, "createUserWithEmail:success");
                 mensajes.alertaCierraActivity(ctx, ctx.getString(R.string.RegistroCorrecto), ctx.getString(R.string.RegistradoCorrectamente));
@@ -40,14 +44,22 @@ public class FirebaseUtilidades {
     public void inicioSesion(String correo, String password, Context ctx) {
         FirebaseApp.initializeApp(ctx);
         mAuth = FirebaseAuth.getInstance();
-        barraEspera(ctx,ctx.getString(R.string.entrandoApp),ctx.getString(R.string.esperePorFavor));
+        FirebaseUser user = mAuth.getCurrentUser();
+        barraEspera(ctx, ctx.getString(R.string.entrandoApp), ctx.getString(R.string.esperePorFavor));
 
         mAuth.signInWithEmailAndPassword(correo, password).addOnCompleteListener((Activity) ctx, task -> {
             if (task.isSuccessful()) {
-                progressDialog.dismiss();
-                Log.d(TAG, "signInWithEmail:success");
-                Intent intenMenu = new Intent(ctx, menuPrincipal.class);
-                ctx.startActivity(intenMenu);
+                Boolean estatus = Objects.requireNonNull(user).isEmailVerified();
+
+                if (estatus.equals(false)) {
+                    progressDialog.dismiss();
+                    mensajes.alertacomun(ctx, "Advertencia", "No has verificado tu correo electronico");
+                } else {
+                    progressDialog.dismiss();
+                    Log.d(TAG, "signInWithEmail:success");
+                    Intent intenMenu = new Intent(ctx, menuPrincipal.class);
+                    ctx.startActivity(intenMenu);
+                }
             } else {
                 progressDialog.dismiss();
                 Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -57,18 +69,17 @@ public class FirebaseUtilidades {
     }
 
     public void restablecerPass(Context ctx, String correo) {
+        barraEspera(ctx, ctx.getString(R.string.EnviandoSoli), ctx.getString(R.string.esperePorFavor));
 
         FirebaseAuth.getInstance().sendPasswordResetEmail(correo).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 progressDialog.dismiss();
-                Log.d(TAG, "Email sent.");
-
+                Log.d(TAG, "Correo para restablecer contraseña enviado");
             }
         });
-
     }
 
-    private void barraEspera(Context ctx,String titulo,String mensaje) {
+    private void barraEspera(Context ctx, String titulo, String mensaje) {
         progressDialog = new ProgressDialog(ctx);
         progressDialog.setMessage(mensaje);
         progressDialog.setTitle(titulo);

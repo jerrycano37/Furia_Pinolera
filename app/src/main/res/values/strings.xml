@@ -37,7 +37,7 @@
     <string name="RegistroCorrecto">Registro Correcto</string>
     <string name="RegistroError">Registro Incorrecto</string>
     <string name="SesionError">Error Al Iniciar Sesion</string>
-    <string name="RegistradoCorrectamente">Te has registrado correctamente</string>
+    <string name="RegistradoCorrectamente">Te has registrado correctamente. Verifica tu correo Electronico</string>
     <string name="RegistradoError">Error inesperado al registrarse</string>
     <string name="msjErrorSesion">Error inesperado al iniciar sesion</string>
     <string name="errorCorreoVacio">Se debe ingresar un correo electronico</string>
@@ -50,4 +50,9 @@
     <string name="passDistintas">Las contraseña son distintas</string>
     <string name="passrepetirvacio">Debes repetir la contraseña</string>
     <string name="passNocumple">La contraseña no cumple los requisitos minimos</string>
+    <string name="instrucciones">Instrucciones</string>
+    <string name="correoVinculado">¿Ingresa el correo electronico vinculado a tu cuenta?</string>
+    <string name="msjRestauranPass">Revice su correo electronico y siga el enlace enviado</string>
+    <string name="EnviadoOk">Enviado Correctamente</string>
+    <string name="EnviandoSoli">Enviando Solicitud</string>
 </resources>
