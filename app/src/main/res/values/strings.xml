@@ -55,4 +55,11 @@
     <string name="msjRestauranPass">Revice su correo electronico y siga el enlace enviado</string>
     <string name="EnviadoOk">Enviado Correctamente</string>
     <string name="EnviandoSoli">Enviando Solicitud</string>
+
+    <string name="fragment_first_title">First</string>
+    <string name="fragment_second_title">Second</string>
+    <string name="fragment_third_title">Third</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

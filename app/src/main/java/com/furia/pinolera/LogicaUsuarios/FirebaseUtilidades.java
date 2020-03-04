@@ -29,7 +29,7 @@ public class FirebaseUtilidades {
 
         mAuth.createUserWithEmailAndPassword(correo, password).addOnCompleteListener((Activity) ctx, task -> {
             if (task.isSuccessful()) {
-                usuarioActual.sendEmailVerification();
+                Objects.requireNonNull(usuarioActual).sendEmailVerification();
                 progressDialog.dismiss();
                 Log.d(TAG, "createUserWithEmail:success");
                 mensajes.alertaCierraActivity(ctx, ctx.getString(R.string.RegistroCorrecto), ctx.getString(R.string.RegistradoCorrectamente));

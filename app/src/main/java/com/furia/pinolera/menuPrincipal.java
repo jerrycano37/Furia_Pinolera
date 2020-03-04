@@ -1,32 +1,24 @@
 package com.furia.pinolera;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
-
-import com.furia.utils.Utils;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import com.furia.pinolera.adapter.TabPageAdaptador;
 
 public class menuPrincipal extends AppCompatActivity {
-    ImageView bgImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-        inicializarComponentes();
-        iniciarBackground();
+
+        //getSupportActionBar().setElevation(0);
+
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        ViewPager viewPager = findViewById(R.id.pager);
+
+        viewPager.setAdapter(new TabPageAdaptador(getSupportFragmentManager(), this));
+        tabLayout.setupWithViewPager(viewPager);
     }
-
-    private void inicializarComponentes() {
-        bgImageView = findViewById(R.id.bgImageView);
-    }
-
-    private void iniciarBackground() {
-        int id = R.drawable.login_background;
-        Utils.setImageToImageView(getApplicationContext(), bgImageView, id);
-    }
-
-
-
-
 }

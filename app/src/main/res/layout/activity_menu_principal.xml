@@ -2,9 +2,12 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_grey_300">
+    android:background="@color/md_grey_300"
+    android:orientation="vertical"
+    tools:context="com.furia.pinolera.MainActivity">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -22,71 +25,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <android.support.constraint.ConstraintLayout
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll"
+                app:tabSelectedTextColor="@android:color/white"
+                tools:ignore="MissingConstraints" />
 
-                <ImageView
-                    android:id="@+id/bgImageView"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/baseline_image_black_24"
-                    tools:ignore="ContentDescription" />
-
-                <View
-                    android:id="@+id/view57"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/black_alpha_50"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ImageView
-                    android:id="@+id/textView179"
-                    android:layout_width="wrap_content"
-                    android:layout_height="118dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textAlignment="center"
-                    android:textColor="@color/md_white_1000"
-                    android:textSize="80sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/logo_oficial"
-                    tools:layout_editor_absoluteY="16dp"
-                    tools:ignore="ContentDescription,MissingConstraints" />
-
-                <TextView
-                    android:id="@+id/textView183"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/NameGrupo"
-                    android:textAlignment="center"
-                    android:textColor="@color/md_white_1000"
-                    android:textSize="@dimen/font_h5_size"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView179" />
-
-
-            </android.support.constraint.ConstraintLayout>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-
 </android.support.constraint.ConstraintLayout>

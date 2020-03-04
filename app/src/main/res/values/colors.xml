@@ -308,4 +308,11 @@
     <color name="md_blue_grey_800">#37474F</color>
     <color name="md_blue_grey_900">#263238</color>
 
+    <color name="colorPrimary2">#125688</color>
+    <color name="colorPrimaryDark2">#125688</color>
+    <color name="textColorPrimary2">#FFFFFF</color>
+    <color name="windowBackground2">#FFFFFF</color>
+    <color name="navigationBarColor2">#000000</color>
+    <color name="colorAccent2">#c8e8ff</color>
+
 </resources>
